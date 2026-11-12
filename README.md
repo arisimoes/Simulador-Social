@@ -1,6 +1,87 @@
-🌍 Simulador Social e Econômico (Modelos de Governo)Um simulador macroeconômico e social baseado em Python que modela a evolução, o desenvolvimento e as dinâmicas populacionais de quatro sistemas socioeconômicos distintos (Socialismo, Social Democracia, Conservador e Liberal) ao longo do tempo.O projeto foi estruturado para rodar de forma modular e interativa, sendo ideal para execução em ambientes como o Google Colab ou terminais locais.🚀 Funcionalidades PrincipaisComparação de Regimes: Simula simultaneamente 4 ilhas/sociedades com parâmetros próprios de carga tributária, liberdade econômica, gastos sociais, investimentos públicos e incentivos à produção.Mercado de Trabalho Realista (Formal + Informal): Incorpora a dinâmica de absorção de mão de obra pelo setor informal (inspirado na realidade econômica brasileira), amortecendo crises de desemprego estrutural.Dinâmica Demográfica Completa: Controla faixas etárias (crianças, adultos e idosos), taxas de natalidade, mortalidade segmentada por faixa etária e impacto direto da saúde e insegurança alimentar na expectativa de vida.Fluxos Migratórios Dinâmicos: Populações migram ativamente entre as ilhas buscando melhores condições de felicidade, renda e qualidade de vida.Gestão Fiscal e Governamental: Modela arrecadação de impostos, corrupção institucional (baseada em transparência, fiscalização e concentração de poder), previdência social, dívida pública e taxa de juros.Produção Setorial e Comércio Exterior: Divide a economia em Agropecuária, Indústria e Serviços, com gestão de estoques de alimentos, energia e minério, além de balança comercial (exportações/importações entre ilhas).Execução Interativa: Permite definir a janela temporal da simulação (em anos) diretamente no início da execução e gera relatórios comparativos completos e gráficos de evolução do PIB.📂 Estrutura do ProjetoO simulador é dividido em módulos independentes para facilitar a manutenção e expansão:ArquivoResponsabilidademain.pyOrquestrador principal, loop temporal, coleta de histórico, entrada de anos via terminal e geração de gráficos.config.pyParâmetros iniciais globais (população, recursos, indicadores sociais e configurações base).demografia.pyCálculo de natalidade, mortalidade por faixa etária, transição geracional e força de trabalho.economia.pyGeração de empregos formais e informais, produtividade, abertura/falência de empresas, salários e acúmulo de capital.governo.pyArrecadação tributária, perda por corrupção, gastos sociais, previdência, dívida pública e juros.recursos.pyProdução agrícola, industrial e de serviços, além do consumo e regeneração de recursos naturais.comercio.pyTrocas comerciais de excedentes (alimentos, energia e minério) entre as ilhas.migracao.pyCálculo de atratividade e transferência populacional entre diferentes regimes.indicadores.pyMétricas de bem-estar: Felicidade, Expectativa de Vida, Segurança Alimentar, Atratividade e Coeficiente de Gini.🛠️ Tecnologias UtilizadasPython 3Pandas: Manipulação de dados e geração do relatório comparativo final.NumPy: Cálculos estatísticos e indicadores socioeconômicos.Matplotlib: Visualização gráfica da evolução do PIB ao longo dos anos simulados.▶️ Como ExecutarNo Google ColabAbra o notebook Simulador_social.ipynb.Execute todas as células que criam os arquivos .py (%%writefile ...).Na última célula, execute:!python main.py
-Digite a quantidade de anos desejada quando solicitado (ou pressione Enter para usar o padrão de 100 anos).Localmente (Terminal)Clone este repositório:git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-Instale as dependências necessárias:pip install pandas numpy matplotlib
-Execute o simulador:python main.py
-📊 Exemplo de SaídaAo final da execução, o simulador exibe uma tabela completa com 34 indicadores comparando os modelos (ordenados pelo índice de Felicidade), incluindo População, PIB per capita, Taxa de Desemprego, Saldo Migratório, Dívida Pública, Corrupção e Segurança Alimentar, acompanhada de um gráfico de linha com a trajetória do PIB.🔮 Próximos Passos (Roadmap)[ ] Calibração do equilíbrio fiscal e previdenciário para evitar espirais de dívida em simulações de longuíssimo prazo (1.000+ anos).[ ] Ajuste na cadeia de suprimentos e preços para mitigar a escassez crônica de estoques de alimentos.[ ] Implementação de eventos aleatórios (choques climáticos, crises sanitárias e revoluções tecnológicas).[ ] Sistema de eleições e instabilidade política baseado no Índice de Gini e na Felicidade.
+# 🌍 Simulador Social e Econômico (Modelos de Governo)
+
+Um simulador macroeconômico e social baseado em Python que modela a evolução, o desenvolvimento e as dinâmicas populacionais de quatro sistemas socioeconômicos distintos (**Socialismo**, **Social Democracia**, **Conservador** e **Liberal**) ao longo do tempo.
+
+O projeto foi estruturado para rodar de forma modular e interativa, sendo ideal para execução em ambientes como o **Google Colab** ou terminais locais.
+
+---
+
+## 🚀 Funcionalidades Principais
+
+* **Comparação de Regimes:** Simula simultaneamente 4 ilhas/sociedades com parâmetros próprios de carga tributária, liberdade econômica, gastos sociais, investimentos públicos e incentivos à produção.
+* **Mercado de Trabalho Realista (Formal + Informal):** Incorpora a dinâmica de absorção de mão de obra pelo setor informal (inspirado na realidade econômica brasileira), amortecendo crises de desemprego estrutural.
+* **Dinâmica Demográfica Completa:** Controla faixas etárias (crianças, adultos e idosos), taxas de natalidade, mortalidade segmentada por faixa etária e impacto direto da saúde e insegurança alimentar na expectativa de vida.
+* **Fluxos Migratórios Dinâmicos:** Populações migram ativamente entre as ilhas buscando melhores condições de felicidade, renda e qualidade de vida.
+* **Gestão Fiscal e Governamental:** Modela arrecadação de impostos, corrupção institucional (baseada em transparência, fiscalização e concentração de poder), previdência social, dívida pública e taxa de juros.
+* **Produção Setorial e Comércio Exterior:** Divide a economia em Agropecuária, Indústria e Serviços, com gestão de estoques de alimentos, energia e minério, além de balança comercial (exportações/importações entre ilhas).
+* **Execução Interativa:** Permite definir a janela temporal da simulação (em anos) diretamente no início da execução e gera relatórios comparativos completos e gráficos de evolução do PIB.
+
+---
+
+## 📂 Estrutura do Projeto
+
+O simulador é dividido em módulos independentes para facilitar a manutenção e expansão:
+
+| Arquivo | Responsabilidade |
+| :--- | :--- |
+| `main.py` | Orquestrador principal, loop temporal, coleta de histórico, entrada de anos via terminal e geração de gráficos. |
+| `config.py` | Parâmetros iniciais globais (população, recursos, indicadores sociais e configurações base). |
+| `demografia.py` | Cálculo de natalidade, mortalidade por faixa etária, transição geracional e força de trabalho. |
+| `economia.py` | Geração de empregos formais e informais, produtividade, abertura/falência de empresas, salários e acúmulo de capital. |
+| `governo.py` | Arrecadação tributária, perda por corrupção, gastos sociais, previdência, dívida pública e juros. |
+| `recursos.py` | Produção agrícola, industrial e de serviços, além do consumo e regeneração de recursos naturais. |
+| `comercio.py` | Trocas comerciais de excedentes (alimentos, energia e minério) entre as ilhas. |
+| `migracao.py` | Cálculo de atratividade e transferência populacional entre diferentes regimes. |
+| `indicadores.py` | Métricas de bem-estar: Felicidade, Expectativa de Vida, Segurança Alimentar, Atratividade e Coeficiente de Gini. |
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Python 3**
+* **Pandas:** Manipulação de dados e geração do relatório comparativo final.
+* **NumPy:** Cálculos estatísticos e indicadores socioeconômicos.
+* **Matplotlib:** Visualização gráfica da evolução do PIB ao longo dos anos simulados.
+
+---
+
+## ▶️ Como Executar
+
+### No Google Colab
+1. Abra o notebook `Simulador_social.ipynb`.
+2. Execute todas as células que criam os arquivos `.py` (`%%writefile ...`).
+3. Na última célula, execute:
+   ```bash
+   !python main.py
+   ```
+4. Digite a quantidade de anos desejada quando solicitado (ou pressione `Enter` para usar o padrão de 100 anos).
+
+### Localmente (Terminal)
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+2. Instale as dependências necessárias:
+   ```bash
+   pip install pandas numpy matplotlib
+   ```
+3. Execute o simulador:
+   ```bash
+   python main.py
+   ```
+
+---
+
+## 📊 Exemplo de Saída
+
+Ao final da execução, o simulador exibe uma tabela completa com **34 indicadores** comparando os modelos (ordenados pelo índice de Felicidade), incluindo População, PIB per capita, Taxa de Desemprego, Saldo Migratório, Dívida Pública, Corrupção e Segurança Alimentar, acompanhada de um gráfico de linha com a trajetória do PIB.
+
+---
+
+## 🔮 Próximos Passos (Roadmap)
+
+* [ ] Calibração do equilíbrio fiscal e previdenciário para evitar espirais de dívida em simulações de longuíssimo prazo (1.000+ anos).
+* [ ] Ajuste na cadeia de suprimentos e preços para mitigar a escassez crônica de estoques de alimentos.
+* [ ] Implementação de eventos aleatórios (choques climáticos, crises sanitárias e revoluções tecnológicas).
+* [ ] Sistema de eleições e instabilidade política baseado no Índice de Gini e na Felicidade.
